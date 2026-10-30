@@ -17,7 +17,7 @@ resource "aws_instance" "bastion" {
   )
 }
 
-resource "aws_iam_instance_profile" "bastion" {
+resource "aws_iam_instance_profile" "bastion1" {
   name = "bastion"
   role = "Terraformbastion1"
 }
