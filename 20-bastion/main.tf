@@ -4,7 +4,7 @@ resource "aws_instance" "bastion" {
   vpc_security_group_ids = [local.bastion_sg_id]
   subnet_id              = local.public_sunnet_id
   user_data              = file("bastion.sh")
-  iam_instance_profile   = aws_iam_instance_profile.bastion1.name
+  # iam_instance_profile   = aws_iam_instance_profile.bastion.name
   root_block_device {
     volume_size = 50
     volume_type = "gp3"
@@ -12,12 +12,12 @@ resource "aws_instance" "bastion" {
   tags = merge(
     local.common_tags,
     {
-      Name = "${var.project_name}-${var.environment}-bastion1"
+      Name = "${var.project_name}-${var.environment}-bastion"
     }
   )
 }
 
-resource "aws_iam_instance_profile" "bastion1" {
-  name = "bastion"
-  role = "Terraformbastion1"
-}
+# resource "aws_iam_instance_profile" "bastion" {
+#   name = "bastion"
+#   role = "Terraformbastion"
+# }
