@@ -93,7 +93,7 @@ pipeline {
 
                 stage('EKS') {
                     steps {
-                        build job: '90-eks',
+                        build job: '100-eks',
                             wait: true,
                             propagate: true
                     }
