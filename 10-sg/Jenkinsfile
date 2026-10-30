@@ -91,13 +91,13 @@ pipeline {
                     }
                 }
 
-                // stage('EKS') {
-                //     steps {
-                //         build job: '90-eks',
-                //             wait: true,
-                //             propagate: true
-                //     }
-                // }
+                stage('EKS') {
+                    steps {
+                        build job: '90-eks',
+                            wait: true,
+                            propagate: true
+                    }
+                }
             }
         }
 
