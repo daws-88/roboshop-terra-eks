@@ -50,29 +50,29 @@ module "eks" {
       }
     }
 
-    green = {      
-      # Starting on 1.30, AL2023 is the default AMI type for EKS managed node groups
-      ami_type       = "AL2023_x86_64_STANDARD"
-      instance_types = ["m5.xlarge"] ## on demand
-      iam_role_additional_policies = {
-          aws_ebs = "arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy"
-          aws_efs = "arn:aws:iam::aws:policy/service-role/AmazonEFSCSIDriverPolicy"
-      }
-     ## cluster node autoscaling
-      min_size     = 2
-      max_size     = 10
-      desired_size = 2
-      taints = {
-        upgrade = {
-          key = "upgrade"
-          value = "true"
-          effect = "NO_SCHEDULE"
-        }
-      }
-      labels = {
-        nodegroup = "green"
-      }
-    }
+    # green = {      
+    #   # Starting on 1.30, AL2023 is the default AMI type for EKS managed node groups
+    #   ami_type       = "AL2023_x86_64_STANDARD"
+    #   instance_types = ["m5.xlarge"] ## on demand
+    #   iam_role_additional_policies = {
+    #       aws_ebs = "arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy"
+    #       aws_efs = "arn:aws:iam::aws:policy/service-role/AmazonEFSCSIDriverPolicy"
+    #   }
+    #  ## cluster node autoscaling
+    #   min_size     = 2
+    #   max_size     = 10
+    #   desired_size = 2
+    #   taints = {
+    #     upgrade = {
+    #       key = "upgrade"
+    #       value = "true"
+    #       effect = "NO_SCHEDULE"
+    #     }
+    #   }
+    #   labels = {
+    #     nodegroup = "green"
+    #   }
+    # }
   }
 
   tags = local.common_tags
