@@ -75,13 +75,13 @@ pipeline {
                     }
                 }
 
-                stage('ECR') {
-                    steps {
-                        build job: '40-ecr',
-                            wait: true,
-                            propagate: true
-                    }
-                }
+                // stage('ECR') {
+                //     steps {
+                //         build job: '40-ecr',
+                //             wait: true,
+                //             propagate: true
+                //     }
+                // }
 
                 stage('ACM') {
                     steps {
